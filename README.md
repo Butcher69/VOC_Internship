@@ -6,15 +6,6 @@
 
 ### 🌟 *Empowering the Next Generation of Developers* 🌟
 
-[![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)](https://www.chartjs.org/)
-
----
-
-🌐 **[🔗 Live Demo](http://127.0.0.1:5500/Assignment_3/)** • 💰 **Courses starting from ₹2,499** • 🎯 **98% Job Placement Rate**
-
 </div>
 
 <div align="center">
