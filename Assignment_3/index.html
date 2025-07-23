@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VaultofCodes - Academic Excellence Platform</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Animated Particle Background -->
+  <div class="particles-container">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="authModal" class="auth-modal-overlay">
+    <div class="auth-modal">
+      <div class="auth-modal-header">
+        <button class="close-modal" onclick="closeAuthModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div id="loginForm" class="auth-form active">
+        <div class="auth-header">
+          <h2>Welcome Back</h2>
+          <p>Sign in to access your dashboard</p>
+        </div>
+        
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required placeholder="Enter your email">
+          </div>
+          
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required placeholder="Enter your password">
+          </div>
+          
+          <button type="submit" class="btn-primary full-width">
+            <i class="fas fa-sign-in-alt"></i>
+            Sign In
+          </button>
+        </form>
+        
+        <div class="auth-footer">
+          <p>Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a></p>
+          <p><a href="#" onclick="enterAsGuest()">Continue as Guest</a></p>
+        </div>
+      </div>
+      
+      <div id="signupForm" class="auth-form">
+        <div class="auth-header">
+          <h2>Create Account</h2>
+          <p>Join thousands of developers</p>
+        </div>
+        
+        <form onsubmit="handleSignup(event)">
+          <div class="form-group">
+            <label for="signupName">Full Name</label>
+            <input type="text" id="signupName" required placeholder="Enter your full name">
+          </div>
+          
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" required placeholder="Enter your email">
+          </div>
+          
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" required placeholder="Create a password">
+          </div>
+          
+          <button type="submit" class="btn-primary full-width">
+            <i class="fas fa-user-plus"></i>
+            Create Account
+          </button>
+        </form>
+        
+        <div class="auth-footer">
+          <p>Already have an account? <a href="#" onclick="switchToLogin()">Sign in</a></p>
+          <p><a href="#" onclick="enterAsGuest()">Continue as Guest</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="landingPage" class="landing-page">
+    <nav class="navbar landing-nav">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <div class="brand-icon">
+            <img src="Logo/VOC LOGO_1705128050867.png" alt="VaultofCodes Logo" class="vault-logo-img breathe glow-effect">
+          </div>
+          <span class="brand-name">VaultofCodes</span>
+        </div>
+        <div class="nav-actions">
+          <button class="btn-secondary" onclick="openAuthModal('login')">Login</button>
+          <button class="btn-primary" onclick="openAuthModal('signup')">Get Started</button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="landing-hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Unlock Your <span class="gradient-text">Coding Potential</span> 
+            with <span class="gradient-text">VaultofCodes</span>
+          </h1>
+          <p class="hero-subtitle">
+            Master programming skills, gain real-world experience, and build your career with our comprehensive coding bootcamp and internship platform
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary large glow-effect sparkle" onclick="openAuthModal('signup')">
+              <i class="fas fa-rocket"></i>
+              Start Your Journey
+            </button>
+            <button class="btn-secondary large magnetic" onclick="enterAsGuest()">
+              <i class="fas fa-eye"></i>
+              Explore as Guest
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">5K+</div>
+              <div class="stat-label">Developers</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">200+</div>
+              <div class="stat-label">Tech Companies</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Job Placement</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-cards">
+            <div class="floating-card card-1">
+              <i class="fas fa-code"></i>
+              <span>Code Mastery</span>
+            </div>
+            <div class="floating-card card-2">
+              <i class="fas fa-database"></i>
+              <span>Data Vault</span>
+            </div>
+            <div class="floating-card card-3">
+              <i class="fas fa-rocket"></i>
+              <span>Launch Career</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-preview">
+      <div class="container">
+        <h2 class="section-title">Why Choose VaultofCodes?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Expert-Led Courses</h3>
+            <p>Learn from industry professionals with years of experience</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3>Real Projects</h3>
+            <p>Build portfolio-worthy projects that employers love</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Job Placement</h3>
+            <p>Direct connections to hiring partners and career support</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="mainApp" class="main-app hidden">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <div class="brand-icon">
+            <img src="Logo/VOC LOGO_1705128050867.png" alt="VaultofCodes Logo" class="vault-logo-img">
+          </div>
+          <span class="brand-name">VaultofCodes</span>
+        </div>
+        <div class="nav-links">
+          <a href="#courses" class="nav-link">Courses</a>
+          <a href="#internships" class="nav-link">Internships</a>
+          <a href="#dashboard" class="nav-link auth-only" id="dashboardLink">Dashboard</a>
+          <a href="#verify" class="nav-link active">Verify</a>
+        </div>
+        <div class="nav-actions">
+          <!-- Profile Dropdown -->
+          <div class="profile-dropdown" id="profileDropdown">
+            <button class="profile-btn" id="profileBtn" onclick="toggleProfileDropdown()">
+              <div class="profile-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <span class="profile-name" id="profileName">Guest</span>
+              <i class="fas fa-chevron-down profile-arrow"></i>
+            </button>
+            
+            <div class="dropdown-menu" id="dropdownMenu">
+              <div class="dropdown-header">
+                <div class="user-avatar-large">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                  <span class="user-name" id="dropdownUserName">Guest User</span>
+                  <span class="user-role" id="dropdownUserRole">Guest Access</span>
+                </div>
+              </div>
+              
+              <div class="dropdown-divider"></div>
+              
+              <div class="dropdown-items">
+                <a href="#" class="dropdown-item auth-only" onclick="openProfile()">
+                  <i class="fas fa-user-edit"></i>
+                  <span>Edit Profile</span>
+                </a>
+                <div class="dropdown-divider auth-only"></div>
+                <a href="#" class="dropdown-item guest-only" onclick="openAuthModal('signup')">
+                  <i class="fas fa-user-plus"></i>
+                  <span>Create Account</span>
+                </a>
+                <a href="#" class="dropdown-item guest-only" onclick="openAuthModal('login')">
+                  <i class="fas fa-sign-in-alt"></i>
+                  <span>Sign In</span>
+                </a>
+                <a href="#" class="dropdown-item auth-only" onclick="logout()">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Welcome to Your <span class="gradient-text">Coding Journey</span>
+          </h1>
+          <p class="hero-subtitle">
+            Access courses, track progress, and build your portfolio with VaultofCodes
+          </p>
+          <div class="hero-actions">
+            <a href="#courses" class="btn-primary large">
+              <i class="fas fa-play"></i>
+              Start Learning
+            </a>
+            <a href="#verify" class="btn-secondary large">
+              <i class="fas fa-certificate"></i>
+              Verify Certificates
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <section id="courses" class="courses-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Master Coding Skills</h2>
+        <p class="section-subtitle">Learn from industry experts and build real-world projects</p>
+      </div>
+
+      <div class="course-filters">
+        <button class="filter-btn active" data-filter="all">All Courses</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="data">Data Science</button>
+        <button class="filter-btn" data-filter="mobile">Mobile Development</button>
+        <button class="filter-btn" data-filter="ai">AI/ML</button>
+        <button class="filter-btn" data-filter="design">UI/UX Design</button>
+      </div>
+
+      <div class="courses-grid">
+        <div class="course-card" data-category="web">
+          <div class="course-image">
+            <div class="course-badge">Bestseller</div>
+            <i class="fab fa-html5 course-icon"></i>
+          </div>
+          <div class="course-content">
+            <div class="course-meta">
+              <span class="course-level">Beginner</span>
+              <span class="course-duration">12 weeks</span>
+            </div>
+            <h3 class="course-title">Full Stack Web Development</h3>
+            <p class="course-description">Learn HTML, CSS, JavaScript, React, Node.js and build complete web applications</p>
+            <div class="course-stats">
+              <div class="stat">
+                <i class="fas fa-users"></i>
+                <span>2,847 students</span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-star"></i>
+                <span>4.8 (324 reviews)</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price">
+                <span class="price-original">₹4,999</span>
+                <span class="price-current">₹2,999</span>
+              </div>
+              <button class="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card" data-category="data">
+          <div class="course-image">
+            <div class="course-badge">New</div>
+            <i class="fas fa-chart-bar course-icon"></i>
+          </div>
+          <div class="course-content">
+            <div class="course-meta">
+              <span class="course-level">Intermediate</span>
+              <span class="course-duration">16 weeks</span>
+            </div>
+            <h3 class="course-title">Data Science & Analytics</h3>
+            <p class="course-description">Master Python, SQL, Machine Learning, and data visualization with real-world projects</p>
+            <div class="course-stats">
+              <div class="stat">
+                <i class="fas fa-users"></i>
+                <span>1,923 students</span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-star"></i>
+                <span>4.9 (187 reviews)</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price">
+                <span class="price-original">₹6,999</span>
+                <span class="price-current">₹4,999</span>
+              </div>
+              <button class="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="course-card" data-category="mobile">
+          <div class="course-image">
+            <i class="fab fa-react course-icon"></i>
+          </div>
+          <div class="course-content">
+            <div class="course-meta">
+              <span class="course-level">Intermediate</span>
+              <span class="course-duration">14 weeks</span>
+            </div>
+            <h3 class="course-title">React Native Development</h3>
+            <p class="course-description">Build cross-platform mobile apps with React Native and publish to app stores</p>
+            <div class="course-stats">
+              <div class="stat">
+                <i class="fas fa-users"></i>
+                <span>1,456 students</span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-star"></i>
+                <span>4.7 (203 reviews)</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price">
+                <span class="price-original">₹5,999</span>
+                <span class="price-current">₹3,999</span>
+              </div>
+              <button class="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="course-card" data-category="ai">
+          <div class="course-image">
+            <div class="course-badge">Hot</div>
+            <i class="fas fa-brain course-icon"></i>
+          </div>
+          <div class="course-content">
+            <div class="course-meta">
+              <span class="course-level">Advanced</span>
+              <span class="course-duration">20 weeks</span>
+            </div>
+            <h3 class="course-title">Machine Learning & AI</h3>
+            <p class="course-description">Deep dive into ML algorithms, neural networks, and AI model deployment</p>
+            <div class="course-stats">
+              <div class="stat">
+                <i class="fas fa-users"></i>
+                <span>987 students</span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-star"></i>
+                <span>4.9 (156 reviews)</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price">
+                <span class="price-original">₹8,999</span>
+                <span class="price-current">₹6,999</span>
+              </div>
+              <button class="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="course-card" data-category="design">
+          <div class="course-image">
+            <i class="fas fa-palette course-icon"></i>
+          </div>
+          <div class="course-content">
+            <div class="course-meta">
+              <span class="course-level">Beginner</span>
+              <span class="course-duration">10 weeks</span>
+            </div>
+            <h3 class="course-title">UI/UX Design Masterclass</h3>
+            <p class="course-description">Learn design principles, Figma, user research, and create stunning interfaces</p>
+            <div class="course-stats">
+              <div class="stat">
+                <i class="fas fa-users"></i>
+                <span>2,134 students</span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-star"></i>
+                <span>4.8 (289 reviews)</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price">
+                <span class="price-original">₹3,999</span>
+                <span class="price-current">₹2,499</span>
+              </div>
+              <button class="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="course-card" data-category="web">
+          <div class="course-image">
+            <i class="fas fa-cloud course-icon"></i>
+          </div>
+          <div class="course-content">
+            <div class="course-meta">
+              <span class="course-level">Intermediate</span>
+              <span class="course-duration">18 weeks</span>
+            </div>
+            <h3 class="course-title">Cloud Computing & AWS</h3>
+            <p class="course-description">Master cloud infrastructure, AWS services, and DevOps practices</p>
+            <div class="course-stats">
+              <div class="stat">
+                <i class="fas fa-users"></i>
+                <span>1,678 students</span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-star"></i>
+                <span>4.7 (234 reviews)</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price">
+                <span class="price-original">₹6,499</span>
+                <span class="price-current">₹4,499</span>
+              </div>
+              <button class="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="course-features">
+        <div class="feature-item">
+          <i class="fas fa-certificate"></i>
+          <h4>Industry Certificates</h4>
+          <p>Get recognized certifications upon completion</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-users"></i>
+          <h4>Expert Mentorship</h4>
+          <p>Learn from industry professionals</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-project-diagram"></i>
+          <h4>Real Projects</h4>
+          <p>Build portfolio-worthy projects</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-clock"></i>
+          <h4>Lifetime Access</h4>
+          <p>Access course materials forever</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="internships" class="internships-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Tech Career Launchpad</h2>
+        <p class="section-subtitle">Fast-track your career with top tech companies and innovative startups</p>
+      </div>
+
+
+      <div class="internship-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Partner Companies</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Placement Rate</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">$75K</div>
+            <div class="stat-label">Average Salary</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">3-6</div>
+            <div class="stat-label">Months Duration</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="internship-filters">
+        <select class="filter-select" id="companyFilter">
+          <option value="all">All Companies</option>
+          <option value="tech">Tech Giants</option>
+          <option value="startup">Startups</option>
+          <option value="finance">Finance</option>
+          <option value="healthcare">Healthcare</option>
+        </select>
+        <select class="filter-select" id="locationFilter">
+          <option value="all">All Locations</option>
+          <option value="remote">Remote</option>
+          <option value="nyc">New York</option>
+          <option value="sf">San Francisco</option>
+          <option value="seattle">Seattle</option>
+          <option value="austin">Austin</option>
+        </select>
+        <select class="filter-select" id="domainFilter">
+          <option value="all">All Domains</option>
+          <option value="frontend">Frontend Development</option>
+          <option value="backend">Backend Development</option>
+          <option value="fullstack">Full Stack</option>
+          <option value="data">Data Science</option>
+          <option value="mobile">Mobile Development</option>
+          <option value="design">UI/UX Design</option>
+        </select>
+      </div>
+
+
+      <div class="internships-grid">
+        <div class="internship-card" data-company="tech" data-location="remote" data-domain="fullstack">
+          <div class="internship-header">
+            <div class="company-logo">
+              <i class="fab fa-google"></i>
+            </div>
+            <div class="internship-meta">
+              <div class="company-name">Google</div>
+              <div class="internship-location">
+                <i class="fas fa-map-marker-alt"></i>
+                Remote / Mountain View, CA
+              </div>
+            </div>
+            <div class="internship-status">
+              <span class="status-badge hiring">Actively Hiring</span>
+            </div>
+          </div>
+          <div class="internship-content">
+            <h3 class="internship-title">Software Engineering Intern</h3>
+            <p class="internship-description">Work on cutting-edge projects with Google's engineering teams. Focus on web technologies, scalable systems, and user experience.</p>
+            <div class="internship-details">
+              <div class="detail-item">
+                <i class="fas fa-calendar"></i>
+                <span>Summer 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <span>12 weeks</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$8,000/month</span>
+              </div>
+            </div>
+            <div class="internship-tags">
+              <span class="tag">React</span>
+              <span class="tag">Python</span>
+              <span class="tag">GCP</span>
+              <span class="tag">Full Stack</span>
+            </div>
+          </div>
+          <div class="internship-footer">
+            <div class="application-deadline">
+              <i class="fas fa-hourglass-half"></i>
+              <span>Apply by March 15, 2025</span>
+            </div>
+            <button class="apply-btn">Apply Now</button>
+          </div>
+        </div>
+
+        <div class="internship-card" data-company="tech" data-location="seattle" data-domain="data">
+          <div class="internship-header">
+            <div class="company-logo amazon">
+              <i class="fab fa-amazon"></i>
+            </div>
+            <div class="internship-meta">
+              <div class="company-name">Amazon</div>
+              <div class="internship-location">
+                <i class="fas fa-map-marker-alt"></i>
+                Seattle, WA
+              </div>
+            </div>
+            <div class="internship-status">
+              <span class="status-badge urgent">Limited Spots</span>
+            </div>
+          </div>
+          <div class="internship-content">
+            <h3 class="internship-title">Data Science Intern</h3>
+            <p class="internship-description">Join AWS data science teams to work on machine learning models, analytics, and business intelligence solutions.</p>
+            <div class="internship-details">
+              <div class="detail-item">
+                <i class="fas fa-calendar"></i>
+                <span>Summer 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <span>16 weeks</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$8,500/month</span>
+              </div>
+            </div>
+            <div class="internship-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">AWS</span>
+              <span class="tag">SQL</span>
+            </div>
+          </div>
+          <div class="internship-footer">
+            <div class="application-deadline">
+              <i class="fas fa-hourglass-half"></i>
+              <span>Apply by February 28, 2025</span>
+            </div>
+            <button class="apply-btn">Apply Now</button>
+          </div>
+        </div>
+
+        <div class="internship-card" data-company="tech" data-location="sf" data-domain="mobile">
+          <div class="internship-header">
+            <div class="company-logo meta">
+              <i class="fab fa-meta"></i>
+            </div>
+            <div class="internship-meta">
+              <div class="company-name">Meta</div>
+              <div class="internship-location">
+                <i class="fas fa-map-marker-alt"></i>
+                Menlo Park, CA
+              </div>
+            </div>
+            <div class="internship-status">
+              <span class="status-badge hiring">Actively Hiring</span>
+            </div>
+          </div>
+          <div class="internship-content">
+            <h3 class="internship-title">Mobile App Development Intern</h3>
+            <p class="internship-description">Develop mobile applications for Meta's family of apps. Work with React Native, iOS, and Android technologies.</p>
+            <div class="internship-details">
+              <div class="detail-item">
+                <i class="fas fa-calendar"></i>
+                <span>Summer 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <span>14 weeks</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$9,000/month</span>
+              </div>
+            </div>
+            <div class="internship-tags">
+              <span class="tag">React Native</span>
+              <span class="tag">iOS</span>
+              <span class="tag">Android</span>
+              <span class="tag">Mobile</span>
+            </div>
+          </div>
+          <div class="internship-footer">
+            <div class="application-deadline">
+              <i class="fas fa-hourglass-half"></i>
+              <span>Apply by March 30, 2025</span>
+            </div>
+            <button class="apply-btn">Apply Now</button>
+          </div>
+        </div>
+
+        <div class="internship-card" data-company="startup" data-location="austin" data-domain="design">
+          <div class="internship-header">
+            <div class="company-logo startup">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="internship-meta">
+              <div class="company-name">TechStart Inc</div>
+              <div class="internship-location">
+                <i class="fas fa-map-marker-alt"></i>
+                Austin, TX
+              </div>
+            </div>
+            <div class="internship-status">
+              <span class="status-badge new">New Opportunity</span>
+            </div>
+          </div>
+          <div class="internship-content">
+            <h3 class="internship-title">UI/UX Design Intern</h3>
+            <p class="internship-description">Shape the user experience of our innovative fintech platform. Work closely with product and engineering teams.</p>
+            <div class="internship-details">
+              <div class="detail-item">
+                <i class="fas fa-calendar"></i>
+                <span>Spring 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <span>12 weeks</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$5,500/month</span>
+              </div>
+            </div>
+            <div class="internship-tags">
+              <span class="tag">Figma</span>
+              <span class="tag">User Research</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">Design Systems</span>
+            </div>
+          </div>
+          <div class="internship-footer">
+            <div class="application-deadline">
+              <i class="fas fa-hourglass-half"></i>
+              <span>Apply by January 31, 2025</span>
+            </div>
+            <button class="apply-btn">Apply Now</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="application-process">
+        <h3>How to Apply</h3>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Complete Your Profile</h4>
+              <p>Fill out your skills, experience, and preferences</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Take Skill Assessment</h4>
+              <p>Demonstrate your technical capabilities</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Apply to Positions</h4>
+              <p>Submit applications to matching opportunities</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Interview Process</h4>
+              <p>Complete company-specific interviews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="dashboard" class="dashboard-section auth-only">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Developer Command Center</h2>
+        <p class="section-subtitle">Monitor your coding journey and track career milestones</p>
+      </div>
+
+
+      <div class="dashboard-nav">
+        <button class="dash-nav-btn active" data-tab="overview">Overview</button>
+        <button class="dash-nav-btn" data-tab="courses">My Courses</button>
+        <button class="dash-nav-btn" data-tab="applications">Applications</button>
+        <button class="dash-nav-btn" data-tab="analytics">Analytics</button>
+        <button class="dash-nav-btn" data-tab="achievements">Achievements</button>
+      </div>
+
+
+      <div class="dashboard-content active" data-content="overview">
+        <div class="dashboard-grid">
+
+          <div class="dashboard-card stats-card">
+            <h3>Learning Progress</h3>
+            <div class="quick-stats">
+              <div class="quick-stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Courses Enrolled</div>
+              </div>
+              <div class="quick-stat">
+                <div class="stat-value">75%</div>
+                <div class="stat-label">Avg. Progress</div>
+              </div>
+              <div class="quick-stat">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Certificates</div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="dashboard-card courses-card">
+            <h3>Current Courses</h3>
+            <div class="course-list">
+              <div class="course-item">
+                <div class="course-info">
+                  <h4>Full Stack Web Development</h4>
+                  <p>Module 8 of 12</p>
+                </div>
+                <div class="course-progress">
+                  <div class="progress-ring" data-progress="67">
+                    <span>67%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="course-item">
+                <div class="course-info">
+                  <h4>Data Science & Analytics</h4>
+                  <p>Module 12 of 16</p>
+                </div>
+                <div class="course-progress">
+                  <div class="progress-ring" data-progress="75">
+                    <span>75%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="course-item">
+                <div class="course-info">
+                  <h4>React Native Development</h4>
+                  <p>Module 6 of 14</p>
+                </div>
+                <div class="course-progress">
+                  <div class="progress-ring" data-progress="43">
+                    <span>43%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="dashboard-card activity-card">
+            <h3>Recent Activity</h3>
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon completed">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="activity-content">
+                  <h4>Assignment Submitted</h4>
+                  <p>React Component Assignment - Web Development</p>
+                  <span class="activity-time">2 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon achievement">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="activity-content">
+                  <h4>Badge Earned</h4>
+                  <p>JavaScript Expert Badge</p>
+                  <span class="activity-time">1 day ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon application">
+                  <i class="fas fa-paper-plane"></i>
+                </div>
+                <div class="activity-content">
+                  <h4>Internship Applied</h4>
+                  <p>Google Software Engineering Intern</p>
+                  <span class="activity-time">3 days ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="dashboard-card deadlines-card">
+            <h3>Upcoming Deadlines</h3>
+            <div class="deadline-list">
+              <div class="deadline-item urgent">
+                <div class="deadline-date">
+                  <div class="date-day">28</div>
+                  <div class="date-month">JUL</div>
+                </div>
+                <div class="deadline-content">
+                  <h4>Python Project Submission</h4>
+                  <p>Data Science Course</p>
+                  <span class="deadline-status">Due in 5 days</span>
+                </div>
+              </div>
+              <div class="deadline-item">
+                <div class="deadline-date">
+                  <div class="date-day">15</div>
+                  <div class="date-month">AUG</div>
+                </div>
+                <div class="deadline-content">
+                  <h4>Final Project Presentation</h4>
+                  <p>Web Development Course</p>
+                  <span class="deadline-status">Due in 3 weeks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="dashboard-card chart-card">
+            <h3>Learning Performance</h3>
+            <div class="chart-container">
+              <canvas id="performanceChart" width="400" height="200"></canvas>
+            </div>
+          </div>
+
+
+          <div class="dashboard-card recommendations-card">
+            <h3>Recommended for You</h3>
+            <div class="recommendation-list">
+              <div class="recommendation-item">
+                <div class="rec-icon">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <div class="rec-content">
+                  <h4>Machine Learning Course</h4>
+                  <p>Based on your Data Science progress</p>
+                  <button class="rec-btn">Explore</button>
+                </div>
+              </div>
+              <div class="recommendation-item">
+                <div class="rec-icon">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div class="rec-content">
+                  <h4>Microsoft Internship</h4>
+                  <p>Matches your skill profile</p>
+                  <button class="rec-btn">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="dashboard-content" data-content="courses">
+        <div class="enrolled-courses">
+          <div class="course-card-dash enrolled">
+            <div class="course-header-dash">
+              <h3>Full Stack Web Development</h3>
+              <span class="course-status active">Active</span>
+            </div>
+            <div class="course-progress-dash">
+              <div class="progress-bar-dash">
+                <div class="progress-fill-dash" style="width: 67%;"></div>
+              </div>
+              <span class="progress-text">67% Complete</span>
+            </div>
+            <div class="course-details-dash">
+              <p>Module 8 of 12 • Next: Advanced React Patterns</p>
+              <div class="course-actions">
+                <button class="continue-btn">Continue Learning</button>
+                <button class="view-btn">View Details</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="course-card-dash enrolled">
+            <div class="course-header-dash">
+              <h3>Data Science & Analytics</h3>
+              <span class="course-status active">Active</span>
+            </div>
+            <div class="course-progress-dash">
+              <div class="progress-bar-dash">
+                <div class="progress-fill-dash" style="width: 75%;"></div>
+              </div>
+              <span class="progress-text">75% Complete</span>
+            </div>
+            <div class="course-details-dash">
+              <p>Module 12 of 16 • Next: Deep Learning Fundamentals</p>
+              <div class="course-actions">
+                <button class="continue-btn">Continue Learning</button>
+                <button class="view-btn">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card-dash completed">
+            <div class="course-header-dash">
+              <h3>JavaScript Fundamentals</h3>
+              <span class="course-status completed">Completed</span>
+            </div>
+            <div class="course-progress-dash">
+              <div class="progress-bar-dash">
+                <div class="progress-fill-dash" style="width: 100%;"></div>
+              </div>
+              <span class="progress-text">100% Complete</span>
+            </div>
+            <div class="course-details-dash">
+              <p>Completed on June 15, 2025 • Grade: A+</p>
+              <div class="course-actions">
+                <button class="certificate-btn">Download Certificate</button>
+                <button class="review-btn">Write Review</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="dashboard-content" data-content="applications">
+        <div class="applications-list">
+          <div class="application-card">
+            <div class="app-header">
+              <div class="company-info">
+                <div class="company-logo-small">
+                  <i class="fab fa-google"></i>
+                </div>
+                <div>
+                  <h3>Software Engineering Intern</h3>
+                  <p>Google • Mountain View, CA</p>
+                </div>
+              </div>
+              <span class="app-status under-review">Under Review</span>
+            </div>
+            <div class="app-timeline">
+              <div class="timeline-item completed">
+                <div class="timeline-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="timeline-content">
+                  <h4>Application Submitted</h4>
+                  <p>March 10, 2025</p>
+                </div>
+              </div>
+              <div class="timeline-item completed">
+                <div class="timeline-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="timeline-content">
+                  <h4>Resume Screening</h4>
+                  <p>March 15, 2025</p>
+                </div>
+              </div>
+              <div class="timeline-item active">
+                <div class="timeline-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="timeline-content">
+                  <h4>Technical Interview</h4>
+                  <p>Scheduled for July 30, 2025</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon">
+                  <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="timeline-content">
+                  <h4>Final Decision</h4>
+                  <p>Pending</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="application-card">
+            <div class="app-header">
+              <div class="company-info">
+                <div class="company-logo-small amazon">
+                  <i class="fab fa-amazon"></i>
+                </div>
+                <div>
+                  <h3>Data Science Intern</h3>
+                  <p>Amazon • Seattle, WA</p>
+                </div>
+              </div>
+              <span class="app-status accepted">Accepted</span>
+            </div>
+            <div class="app-details">
+              <p>Congratulations! You've been selected for the Data Science Internship position.</p>
+              <div class="app-actions">
+                <button class="accept-offer-btn">Accept Offer</button>
+                <button class="view-details-btn">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="dashboard-content" data-content="analytics">
+        <div class="analytics-grid">
+          <div class="analytics-card">
+            <h3>Skill Development</h3>
+            <div class="skill-chart-container">
+              <canvas id="skillDevelopmentChart" width="400" height="300"></canvas>
+            </div>
+          </div>
+          
+          <div class="analytics-card">
+            <h3>Learning Streak</h3>
+            <div class="streak-info">
+              <div class="current-streak">
+                <span class="streak-number">15</span>
+                <span class="streak-label">Day Streak</span>
+              </div>
+              <div class="streak-calendar">
+                <div class="calendar-week">
+                  <div class="day active">M</div>
+                  <div class="day active">T</div>
+                  <div class="day active">W</div>
+                  <div class="day active">T</div>
+                  <div class="day active">F</div>
+                  <div class="day">S</div>
+                  <div class="day">S</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-card">
+            <h3>Time Investment</h3>
+            <div class="time-stats">
+              <div class="time-item">
+                <span class="time-value">42h</span>
+                <span class="time-label">This Month</span>
+              </div>
+              <div class="time-item">
+                <span class="time-value">156h</span>
+                <span class="time-label">Total Time</span>
+              </div>
+              <div class="time-item">
+                <span class="time-value">3.2h</span>
+                <span class="time-label">Daily Average</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="dashboard-content" data-content="achievements">
+        <div class="achievements-grid">
+          <div class="achievement-card earned">
+            <div class="achievement-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3>JavaScript Master</h3>
+            <p>Completed JavaScript Fundamentals course with excellence</p>
+            <span class="earned-date">Earned June 15, 2025</span>
+          </div>
+
+          <div class="achievement-card earned">
+            <div class="achievement-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+            <h3>15-Day Streak</h3>
+            <p>Maintained consistent learning for 15 consecutive days</p>
+            <span class="earned-date">Earned July 20, 2025</span>
+          </div>
+
+          <div class="achievement-card earned">
+            <div class="achievement-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>First Project</h3>
+            <p>Successfully completed your first coding project</p>
+            <span class="earned-date">Earned May 28, 2025</span>
+          </div>
+
+          <div class="achievement-card locked">
+            <div class="achievement-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Course Completer</h3>
+            <p>Complete 3 courses to unlock this achievement</p>
+            <span class="progress-text">2/3 courses completed</span>
+          </div>
+
+          <div class="achievement-card locked">
+            <div class="achievement-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Intern Ready</h3>
+            <p>Land your first internship to unlock this achievement</p>
+            <span class="progress-text">Apply to internships</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  </div>
+
+
+  <main id="verify" class="main-content">
+    <div class="verification-section">
+      <div class="section-header">
+        <h2 class="section-title">Developer Credential Vault</h2>
+        <p class="section-subtitle">Secure verification of coding skills and project achievements</p>
+      </div>
+      
+      <div class="verification-container">
+        <div class="input-group">
+          <div class="input-wrapper">
+            <i class="fas fa-search input-icon"></i>
+            <input id="identifier" type="text" placeholder="Enter developer email or VaultID" class="search-input"/>
+          </div>
+          <button onclick="verifyStudent()" class="verify-btn">
+            <i class="fas fa-shield-alt"></i>
+            Verify Credential
+          </button>
+        </div>
+        
+        <div class="quick-actions">
+          <button class="quick-action-btn">
+            <i class="fas fa-qrcode"></i>
+            Scan QR Code
+          </button>
+          <button class="quick-action-btn">
+            <i class="fas fa-upload"></i>
+            Upload Certificate
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="result" class="result-container"></div>
+    <div class="spinner hidden">
+      <div class="spinner-inner"></div>
+    </div>
+  </main>
+
+
+  <section class="features-section">
+    <div class="container">
+      <h2 class="features-title">Comprehensive Learning Ecosystem</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Premium Courses</h3>
+          <p>Industry-relevant curriculum designed by experts</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3>Internship Placement</h3>
+          <p>Direct connections with top-tier companies</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Progress Analytics</h3>
+          <p>Track performance with detailed insights</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>Verified Certificates</h3>
+          <p>Blockchain-secured credential verification</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-content">
+        <h3 class="trust-title">Trusted by Leading Organizations</h3>
+        <div class="partner-logos">
+          <div class="partner-logo">Google</div>
+          <div class="partner-logo">Microsoft</div>
+          <div class="partner-logo">Amazon</div>
+          <div class="partner-logo">Meta</div>
+          <div class="partner-logo">IBM</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section id="profile" class="profile-section hidden">
+    <div class="container">
+      <div class="profile-header">
+        <button class="back-btn" onclick="closeProfile()">
+          <i class="fas fa-arrow-left"></i>
+          <span>Back</span>
+        </button>
+        <h2 class="section-title">Edit Profile</h2>
+        <p class="section-subtitle">Manage your account settings and preferences</p>
+      </div>
+
+      <div class="profile-content">
+        <div class="profile-sidebar">
+          <div class="profile-nav">
+            <a href="#" class="profile-nav-item active" data-tab="personal">
+              <i class="fas fa-user"></i>
+              <span>Personal Info</span>
+            </a>
+            <a href="#" class="profile-nav-item" data-tab="account">
+              <i class="fas fa-cog"></i>
+              <span>Account Settings</span>
+            </a>
+            <a href="#" class="profile-nav-item" data-tab="skills">
+              <i class="fas fa-code"></i>
+              <span>Skills & Expertise</span>
+            </a>
+            <a href="#" class="profile-nav-item" data-tab="preferences">
+              <i class="fas fa-palette"></i>
+              <span>Preferences</span>
+            </a>
+            <a href="#" class="profile-nav-item" data-tab="notifications">
+              <i class="fas fa-bell"></i>
+              <span>Notifications</span>
+            </a>
+            <a href="#" class="profile-nav-item" data-tab="privacy">
+              <i class="fas fa-shield-alt"></i>
+              <span>Privacy & Security</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="profile-main">
+          <!-- Personal Info Tab -->
+          <div class="profile-tab active" data-content="personal">
+            <div class="tab-header">
+              <h3>Personal Information</h3>
+              <p>Update your personal details and profile photo</p>
+            </div>
+
+            <div class="profile-photo-section">
+              <div class="current-photo">
+                <div class="profile-photo-large">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="photo-upload-btn">
+                  <input type="file" id="photoUpload" accept="image/*" onchange="handlePhotoUpload(event)">
+                  <label for="photoUpload" class="btn-secondary">
+                    <i class="fas fa-camera"></i>
+                    Change Photo
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <form class="profile-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" placeholder="Enter your first name">
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" placeholder="Enter your last name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <small class="form-hint">This will be used for account notifications</small>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number">
+              </div>
+
+              <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                <small class="form-hint">0/500 characters</small>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="location">Location</label>
+                  <input type="text" id="location" placeholder="City, Country">
+                </div>
+                <div class="form-group">
+                  <label for="website">Personal Website</label>
+                  <input type="url" id="website" placeholder="https://yourwebsite.com">
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="resetPersonalForm()">Reset</button>
+                <button type="submit" class="btn-primary" onclick="savePersonalInfo(event)">
+                  <i class="fas fa-save"></i>
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Account Settings Tab -->
+          <div class="profile-tab" data-content="account">
+            <div class="tab-header">
+              <h3>Account Settings</h3>
+              <p>Manage your account security and preferences</p>
+            </div>
+
+            <div class="settings-section">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h4>Change Password</h4>
+                  <p>Update your password to keep your account secure</p>
+                </div>
+                <button class="btn-secondary" onclick="openPasswordModal()">
+                  <i class="fas fa-lock"></i>
+                  Change Password
+                </button>
+              </div>
+
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h4>Two-Factor Authentication</h4>
+                  <p>Add an extra layer of security to your account</p>
+                </div>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="twoFactorToggle" onchange="toggleTwoFactor()">
+                  <label for="twoFactorToggle" class="toggle-label"></label>
+                </div>
+              </div>
+
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h4>Account Visibility</h4>
+                  <p>Control who can see your profile information</p>
+                </div>
+                <select id="accountVisibility" class="form-select" onchange="updateVisibility()">
+                  <option value="public">Public</option>
+                  <option value="private">Private</option>
+                  <option value="friends">Friends Only</option>
+                </select>
+              </div>
+
+              <div class="setting-item danger-zone">
+                <div class="setting-info">
+                  <h4>Delete Account</h4>
+                  <p>Permanently delete your account and all associated data</p>
+                </div>
+                <button class="btn-danger" onclick="confirmDeleteAccount()">
+                  <i class="fas fa-trash"></i>
+                  Delete Account
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills & Expertise Tab -->
+          <div class="profile-tab" data-content="skills">
+            <div class="tab-header">
+              <h3>Skills & Expertise</h3>
+              <p>Showcase your technical skills and experience</p>
+            </div>
+
+            <div class="skills-section">
+              <div class="skill-category">
+                <h4>Programming Languages</h4>
+                <div class="skill-input-container">
+                  <input type="text" id="programmingSkill" placeholder="Add a programming language..." onkeypress="addSkillOnEnter(event, 'programming')">
+                  <button class="btn-secondary" onclick="addSkill('programming')">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="skills-list" id="programmingSkills">
+                  <div class="skill-tag">
+                    <span>JavaScript</span>
+                    <button onclick="removeSkill(this)"><i class="fas fa-times"></i></button>
+                  </div>
+                  <div class="skill-tag">
+                    <span>Python</span>
+                    <button onclick="removeSkill(this)"><i class="fas fa-times"></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h4>Frameworks & Libraries</h4>
+                <div class="skill-input-container">
+                  <input type="text" id="frameworkSkill" placeholder="Add a framework..." onkeypress="addSkillOnEnter(event, 'framework')">
+                  <button class="btn-secondary" onclick="addSkill('framework')">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="skills-list" id="frameworkSkills">
+                  <div class="skill-tag">
+                    <span>React</span>
+                    <button onclick="removeSkill(this)"><i class="fas fa-times"></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h4>Tools & Technologies</h4>
+                <div class="skill-input-container">
+                  <input type="text" id="toolSkill" placeholder="Add a tool..." onkeypress="addSkillOnEnter(event, 'tool')">
+                  <button class="btn-secondary" onclick="addSkill('tool')">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="skills-list" id="toolSkills"></div>
+              </div>
+
+              <div class="experience-section">
+                <h4>Experience Level</h4>
+                <div class="experience-selector">
+                  <label class="experience-option">
+                    <input type="radio" name="experience" value="beginner">
+                    <span class="experience-card">
+                      <i class="fas fa-seedling"></i>
+                      <strong>Beginner</strong>
+                      <small>0-1 years</small>
+                    </span>
+                  </label>
+                  <label class="experience-option">
+                    <input type="radio" name="experience" value="intermediate" checked>
+                    <span class="experience-card">
+                      <i class="fas fa-tree"></i>
+                      <strong>Intermediate</strong>
+                      <small>1-3 years</small>
+                    </span>
+                  </label>
+                  <label class="experience-option">
+                    <input type="radio" name="experience" value="advanced">
+                    <span class="experience-card">
+                      <i class="fas fa-crown"></i>
+                      <strong>Advanced</strong>
+                      <small>3+ years</small>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preferences Tab -->
+          <div class="profile-tab" data-content="preferences">
+            <div class="tab-header">
+              <h3>Preferences</h3>
+              <p>Customize your learning experience</p>
+            </div>
+
+            <div class="preferences-section">
+              <div class="preference-group">
+                <h4>Theme</h4>
+                <div class="theme-selector">
+                  <label class="theme-option">
+                    <input type="radio" name="theme" value="light" checked>
+                    <span class="theme-preview light">
+                      <i class="fas fa-sun"></i>
+                      Light
+                    </span>
+                  </label>
+                  <label class="theme-option">
+                    <input type="radio" name="theme" value="dark">
+                    <span class="theme-preview dark">
+                      <i class="fas fa-moon"></i>
+                      Dark
+                    </span>
+                  </label>
+                  <label class="theme-option">
+                    <input type="radio" name="theme" value="auto">
+                    <span class="theme-preview auto">
+                      <i class="fas fa-adjust"></i>
+                      Auto
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="preference-group">
+                <h4>Language</h4>
+                <select id="languageSelect" class="form-select">
+                  <option value="en">English</option>
+                  <option value="es">Spanish</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                  <option value="zh">Chinese</option>
+                </select>
+              </div>
+
+              <div class="preference-group">
+                <h4>Learning Goals</h4>
+                <div class="goals-grid">
+                  <label class="goal-card">
+                    <input type="checkbox" value="web-dev">
+                    <span>
+                      <i class="fas fa-globe"></i>
+                      Web Development
+                    </span>
+                  </label>
+                  <label class="goal-card">
+                    <input type="checkbox" value="mobile-dev">
+                    <span>
+                      <i class="fas fa-mobile-alt"></i>
+                      Mobile Development
+                    </span>
+                  </label>
+                  <label class="goal-card">
+                    <input type="checkbox" value="data-science">
+                    <span>
+                      <i class="fas fa-chart-bar"></i>
+                      Data Science
+                    </span>
+                  </label>
+                  <label class="goal-card">
+                    <input type="checkbox" value="ai-ml">
+                    <span>
+                      <i class="fas fa-robot"></i>
+                      AI & Machine Learning
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications Tab -->
+          <div class="profile-tab" data-content="notifications">
+            <div class="tab-header">
+              <h3>Notification Settings</h3>
+              <p>Choose what notifications you want to receive</p>
+            </div>
+
+            <div class="notifications-section">
+              <div class="notification-group">
+                <h4>Email Notifications</h4>
+                <div class="notification-item">
+                  <div class="notification-info">
+                    <span>Course Updates</span>
+                    <small>New lessons, assignments, and announcements</small>
+                  </div>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="courseUpdates" checked>
+                    <label for="courseUpdates" class="toggle-label"></label>
+                  </div>
+                </div>
+                <div class="notification-item">
+                  <div class="notification-info">
+                    <span>Assignment Reminders</span>
+                    <small>Reminders about upcoming deadlines</small>
+                  </div>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="assignmentReminders" checked>
+                    <label for="assignmentReminders" class="toggle-label"></label>
+                  </div>
+                </div>
+                <div class="notification-item">
+                  <div class="notification-info">
+                    <span>Weekly Progress Report</span>
+                    <small>Summary of your learning progress</small>
+                  </div>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="progressReport">
+                    <label for="progressReport" class="toggle-label"></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="notification-group">
+                <h4>Push Notifications</h4>
+                <div class="notification-item">
+                  <div class="notification-info">
+                    <span>Real-time Messages</span>
+                    <small>Instant notifications for important updates</small>
+                  </div>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="realtimeMessages">
+                    <label for="realtimeMessages" class="toggle-label"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Privacy & Security Tab -->
+          <div class="profile-tab" data-content="privacy">
+            <div class="tab-header">
+              <h3>Privacy & Security</h3>
+              <p>Control your privacy settings and data</p>
+            </div>
+
+            <div class="privacy-section">
+              <div class="privacy-group">
+                <h4>Profile Visibility</h4>
+                <div class="privacy-item">
+                  <div class="privacy-info">
+                    <span>Show my profile to other students</span>
+                    <small>Allow other students to find and view your profile</small>
+                  </div>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="profileVisible" checked>
+                    <label for="profileVisible" class="toggle-label"></label>
+                  </div>
+                </div>
+                <div class="privacy-item">
+                  <div class="privacy-info">
+                    <span>Show my learning progress</span>
+                    <small>Display your course progress and achievements</small>
+                  </div>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="progressVisible">
+                    <label for="progressVisible" class="toggle-label"></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="privacy-group">
+                <h4>Data & Privacy</h4>
+                <div class="data-actions">
+                  <button class="btn-secondary" onclick="downloadData()">
+                    <i class="fas fa-download"></i>
+                    Download My Data
+                  </button>
+                  <button class="btn-secondary" onclick="clearActivity()">
+                    <i class="fas fa-eraser"></i>
+                    Clear Activity History
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="toast" class="toast-notification"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
